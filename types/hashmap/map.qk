@@ -1,0 +1,69 @@
+fn Put(hm, key, value) {
+    hm[key] = value
+    return hm
+}
+
+fn Get(hm, key) {
+    return hm[key]
+}
+
+fn ContainsKey(hm, key) {
+    return hm.keys().contains(key)
+}
+
+fn Remove(hm, key) {
+    hm -= key
+    return hm
+}
+
+fn Size(hm) {
+    return len(hm)
+}
+
+fn IsEmpty(hm) {
+    return len(hm) == 0
+}
+
+fn Keys(hm) {
+    return hm.keys()
+}
+
+fn Values(hm) {
+    return hm.values()
+}
+
+fn Clear(hm) {
+    hm = {}
+    return hm
+}
+
+fn Merge(hm, other) {
+    for k, v in other { hm[k] = v }
+    return hm
+}
+
+fn ToString(hm) {
+    return fmt.sprintf("%v", hm)
+}
+
+fn HasValue(hm, value) {
+    for v in hm.values() { if v == value { return true } }
+    return false
+}
+
+fn Clone(hm) {
+    return {k: v for k, v in hm}
+}
+
+fn ToArray(hm) {
+    return [k for k in hm.keys()]
+}
+
+fn ToTuple(hm) {
+    return tuple(hm.keys())
+}
+
+fn GetOrDefault(hm, key, default) {
+    if ContainsKey(hm, key) { return hm[key] }
+    return default
+}

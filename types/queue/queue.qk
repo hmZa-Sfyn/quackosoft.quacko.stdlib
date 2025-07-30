@@ -1,0 +1,91 @@
+class Queue {
+    let items = []
+    
+    fn init() {
+        this.items = []
+    }
+}
+
+fn New() {
+    return new Queue()
+}
+
+fn Enqueue(q, item) {
+    q.items += item
+    return q
+}
+
+fn Dequeue(q) {
+    if len(q.items) == 0 { return nil }
+    item = q.items[0]
+    q.items = q.items[1:len(q.items)]
+    return item
+}
+
+fn Peek(q) {
+    if len(q.items) == 0 { return nil }
+    return q.items[0]
+}
+
+fn Size(q) {
+    return len(q.items)
+}
+
+fn IsEmpty(q) {
+    return len(q.items) == 0
+}
+
+fn Clear(q) {
+    q.items = []
+    return q
+}
+
+fn Contains(q, item) {
+    for x in q.items { if x == item { return true } }
+    return false
+}
+
+fn ToArray(q) {
+    return q.items
+}
+
+fn ToString(q) {
+    return fmt.sprintf("Queue(%v)", q.items)
+}
+
+fn Front(q) {
+    return Peek(q)
+}
+
+fn Back(q) {
+    if len(q.items) == 0 { return nil }
+    return q.items[len(q.items)-1]
+}
+
+fn Clone(q) {
+    return new Queue { items = q.items }
+}
+
+
+
+fn Reverse(q) {
+    return new Queue { items = reverse(q.items) }
+}
+
+fn Merge(q, other) {
+    return new Queue { items = q.items + other.items }
+}
+
+fn ToTuple(q) {
+    return tuple(q.items)
+}
+
+
+fn IsFull(q) {
+    return false // No capacity limit in this implementation
+}
+
+fn Concat(q, items) {
+    q.items += items
+    return q
+}

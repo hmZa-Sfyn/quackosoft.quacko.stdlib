@@ -1,0 +1,94 @@
+class Vector {
+    let components = []
+    
+    fn init(values...) {
+        this.components = array(values)
+    }
+}
+
+fn New(values...) {return new Vector(values)}
+
+fn Length(vec) {
+    return len(vec.components)
+}
+
+fn Get(vec, i) {
+    return vec.components[i]
+}
+
+fn Set(vec, i, value) {
+    vec.components[i] = value
+    return vec
+}
+
+fn Add(vec1, vec2) {
+    return new Vector([vec1.components[i] + vec2.components[i] for i in 0..Length(vec1)-1])
+}
+
+fn Subtract(vec1, vec2) {
+    return new Vector([vec1.components[i] - vec2.components[i] for i in 0..Length(vec1)-1])
+}
+
+fn Scale(vec, scalar) {
+    return new Vector([x * scalar for x in vec.components])
+}
+
+fn Dot(vec1, vec2) {
+    return ~+[vec1.components[i] * vec2.components[i] for i in 0..Length(vec1)-1]
+}
+
+fn Magnitude(vec) {
+    return (Dot(vec, vec)) ** 0.5
+}
+
+fn Normalize(vec) {
+    mag = Magnitude(vec)
+    if mag == 0 { return vec }
+    return Scale(vec, 1.0 / mag)
+}
+
+fn ToString(vec) {
+    return fmt.sprintf("Vector(%v)", vec.components)
+}
+
+fn Clone(vec) {
+    return new Vector(vec.components)
+}
+
+fn Equals(vec1, vec2) {
+    if Length(vec1) != Length(vec2) { return false }
+    for i in 0..Length(vec1)-1 {
+        if vec1.components[i] != vec2.components[i] { return false }
+    }
+    return true
+}
+
+fn ToArray(vec) {
+    return vec.components
+}
+
+fn Push(vec, value) {
+    vec.components += value
+    return vec
+}
+
+fn Pop(vec) {
+    return vec.components.pop()
+}
+
+fn Reverse(vec) {
+    return new Vector(reverse(vec.components))
+}
+
+fn Max(vec) {
+    return vec.components.max()
+}
+
+fn Min(vec) {
+    return vec.components.min()
+}
+
+fn Sum(vec) {
+    return ~+vec.components
+}
+

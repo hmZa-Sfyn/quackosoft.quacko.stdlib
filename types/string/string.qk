@@ -1,0 +1,39 @@
+fn Length(strobj) { return len(strobj) }
+
+fn ToUpper(strobj) { return strings.upper(strobj) }
+
+fn ToLower(strobj) { return strings.lower(strobj) }
+
+fn TitleCase(strobj) { return strings.title(strobj) }
+
+fn Trim(strobj) { return strings.trim(strobj) }
+
+fn Replace(strobj, old, new) { return strings.replace(strobj, old, new) }
+
+fn Split(strobj, sep) { return strings.split(strobj, sep) }
+
+fn Join(sep, arr) { return strings.join(arr, sep) }
+
+fn Contains(strobj, substr) { return strings.contains(strobj, substr) }
+
+fn StartsWith(strobj, prefix) { return strings.hasPrefix(strobj, prefix) }
+
+fn EndsWith(strobj, suffix) { return strings.hasSuffix(strobj, suffix) }
+
+fn IndexOf(strobj, substr) { return strings.index(strobj, substr) }
+
+fn LastIndexOf(strobj, substr) { return strings.lastIndex(strobj, substr) }
+
+fn Substring(strobj, start, end=nil) { if end == nil { end = len(strobj) } return strobj[start:end] }
+
+fn Reverse(strobj) { return reverse(strobj) }
+
+fn IsEmpty(strobj) { return len(strobj) == 0 }
+
+fn PadLeft(strobj, width, pad=" ") { while len(strobj) < width { strobj = pad + strobj } return strobj }
+
+fn PadRight(strobj, width, pad=" ") { while len(strobj) < width { strobj = strobj + pad } return strobj }
+
+fn ToInt(strobj) { return int(strobj) }
+
+fn ToFloat(strobj) { return float(strobj) }

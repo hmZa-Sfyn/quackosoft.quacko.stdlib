@@ -1,0 +1,96 @@
+class TreeNode {
+    let value
+    let children = []
+    
+    fn init(val) {
+        this.value = val
+        this.children = []
+    }
+}
+
+fn CreateTree(value) {
+    return new TreeNode(value))
+}
+
+fn AddChild(node, child) {
+    node.children += child
+    return node
+}
+
+fn GetValue(node) {
+    return node.value
+}
+
+fn SetValue(node, value) {
+    node.value = value
+    return node
+}
+
+fn GetChildren(node) {
+    return node.children
+}
+
+fn HasChildren(node) {
+    return len(node.children) > 0
+}
+
+fn ChildCount(node) {
+    return len(node.children)
+}
+
+fn GetChild(node, index) {
+    if index < 0 || index >= len(node.children) { return nil }
+    return node.children[index]
+}
+
+fn RemoveChild(node, index) {
+    if index < 0 || index >= len(node.children) { return node }
+    node.children = node.children[0:index] + node.children[index+1:len(node.children)]
+    return node
+}
+
+
+
+fn ToString(node) {
+    return fmt.sprintf("TreeNode(value=%v, children=%v)", node.value, node.children)
+}
+
+
+
+fn Clone(node) {
+    newNode = new TreeNode { value = node.value }
+    for child in node.children { newNode.children += Clone(child) }
+    return newNode
+}
+
+fn Depth(node) {
+    if len(node.children) == 0 { return 1 }
+    return 1 + linq.from(node.children).select(fn(c) { Depth(c) }).max()
+}
+
+fn IsLeaf(node) {
+    return len(node.children) == 0
+}
+
+fn ToArray(node) {
+    result = [node.value]
+    for child in node.children { result += ToArray(child) }
+    return result
+}
+
+
+
+fn Contains(node, value) {
+    if node.value == value { return true }
+    for child in node.children { if Contains(child, value) { return true } }
+    return false
+}
+
+fn PathTo(node, value) {
+    if node.value == value { return [node.value] }
+    for child in node.children {
+        path = PathTo(child, value)
+        if path != nil { return [node.value] + path }
+    }
+    return nil
+}

@@ -1,0 +1,87 @@
+fn Length(lst) {
+    return len(lst)
+}
+
+fn Push(lst, item) {
+    lst += item
+    return lst
+}
+
+fn Pop(lst) {
+    if len(lst) == 0 { return nil }
+    item = lst[len(lst)-1]
+    lst = lst[0:len(lst)-1]
+    return item
+}
+
+fn Append(lst, item) {
+    lst += item
+    return lst
+}
+
+fn Prepend(lst, item) {
+    lst = [item] + lst
+    return lst
+}
+
+fn Remove(lst, index) {
+    if index < 0 || index >= len(lst) { return lst }
+    lst = lst[0:index] + lst[index+1:len(lst)]
+    return lst
+}
+
+fn Get(lst, index) {
+    if index < 0 || index >= len(lst) { return nil }
+    return lst[index]
+}
+
+fn Set(lst, index, value) {
+    if index < 0 || index >= len(lst) { return lst }
+    lst[index] = value
+    return lst
+}
+
+fn Contains(lst, item) {
+    for x in lst { if x == item { return true } }
+    return false
+}
+
+fn IndexOf(lst, item) {
+    for i, x in lst { if x == item { return i } }
+    return -1
+}
+
+fn LastIndexOf(lst, item) {
+    for i = len(lst)-1; i >= 0; i-- {
+        if lst[i] == item { return i }
+    }
+    return -1
+}
+
+fn Reverse(lst) {
+    return reverse(lst)
+}
+
+fn Slice(lst, start, end=nil) {
+    if end == nil { end = len(lst) }
+    return lst[start:end]
+}
+
+fn Concat(lst, other) {
+    return lst + other
+}
+
+fn Join(lst, sep) {
+    return strings.join(lst, sep)
+}
+
+
+fn Sort(lst, cmp=nil) {
+    if cmp == nil { return linq.from(lst).sort(fn(x,y){x<y}).toSlice() }
+    return linq.from(lst).sort(cmp).toSlice()
+}
+
+fn Clear(lst) {
+    lst = []
+    return lst
+}

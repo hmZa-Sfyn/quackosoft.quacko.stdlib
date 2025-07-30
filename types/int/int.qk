@@ -1,0 +1,90 @@
+fn Next(num) {
+    return num + 1
+}
+
+fn Prev(num) {
+    return num - 1
+}
+
+fn IsEven(num) {
+    return num % 2 == 0
+}
+
+fn IsOdd(num) {
+    return num % 2 != 0
+}
+
+fn Abs(num) {
+    if num < 0 { return -num }
+    return num
+}
+
+fn ToString(num) {
+    return str(num)
+}
+
+fn ToFloat(num) {
+    return float(num)
+}
+
+fn ToBinary(num) {
+    return fmt.sprintf("0b%b", num)
+}
+
+fn ToHex(num) {
+    return fmt.sprintf("0x%x", num)
+}
+
+fn ToOctal(num) {
+    return fmt.sprintf("0o%o", num)
+}
+
+fn Pow(num, exp) {
+    return num ** exp
+}
+
+fn Factorial(num) {
+    if num < 0 { return 0 }
+    if num == 0 { return 1 }
+    result = 1
+    for i in 1..num { result *= i }
+    return result
+}
+
+fn IsPrime(num) {
+    if num < 2 { return false }
+    for i in 2..int(num ** 0.5) {
+        if num % i == 0 { return false }
+    }
+    return true
+}
+
+fn GCD(a, b) {
+    a, b = Abs(a), Abs(b)
+    while b != 0 { a, b = b, a % b }
+    return a
+}
+
+fn LCM(a, b) {
+    return Abs(a * b) / GCD(a, b)
+}
+
+fn UpTo(num, limit) {
+    return [i for i in num..limit]
+}
+
+fn DownTo(num, limit) {
+    return [i for i in num..limit]
+}
+
+fn IsPositive(num) {
+    return num > 0
+}
+
+fn IsNegative(num) {
+    return num < 0
+}
+
+fn ToArray(num) {
+    return array(num)
+}

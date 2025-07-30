@@ -1,0 +1,93 @@
+class Stack {
+    let items = []
+    
+    fn init() {
+        this.items = []
+    }
+}
+
+fn New() {
+    return new Stack()
+}
+
+fn Push(s, item) {
+    s.items += item
+    return s
+}
+
+fn Pop(s) {
+    if len(s.items) == 0 { return nil }
+    item = s.items[len(s.items)-1]
+    s.items = s.items[0:len(s.items)-1]
+    return item
+}
+
+fn Peek(s) {
+    if len(s.items) == 0 { return nil }
+    return s.items[len(s.items)-1]
+}
+
+fn Size(s) {
+    return len(s.items)
+}
+
+fn IsEmpty(s) {
+    return len(s.items) == 0
+}
+
+fn Clear(s) {
+    s.items = []
+    return s
+}
+
+fn Contains(s, item) {
+    for x in s.items { if x == item { return true } }
+    return false
+}
+
+fn ToArray(s) {
+    return s.items
+}
+
+fn ToString(s) {
+    return fmt.sprintf("Stack(%v)", s.items)
+}
+
+fn Top(s) {
+    return Peek(s)
+}
+
+fn Clone(s) {
+    return new Stack { items = s.items }
+}
+
+
+fn Reverse(s) {
+    return new Stack { items = reverse(s.items) }
+}
+
+fn Merge(s, other) {
+    return new Stack { items = s.items + other.items }
+}
+
+fn ToTuple(s) {
+    return tuple(s.items)
+}
+
+
+
+fn IsFull(s) {
+    return false // No capacity limit in this implementation
+}
+
+fn PushMultiple(s, items) {
+    s.items += items
+    return s
+}
+
+fn PopMultiple(s, count) {
+    if len(s.items) < count { count = len(s.items) }
+    items = s.items[len(s.items)-count:len(s.items)]
+    s.items = s.items[0:len(s.items)-count]
+    return items
+}
